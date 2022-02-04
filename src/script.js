@@ -172,6 +172,30 @@ floor.rotation.x = - Math.PI * 0.5
 floor.position.y = 0
 scene.add(floor)
 
+const fontLoader = new THREE.FontLoader()
+fontLoader.load(
+    '/fonts/helvetiker_regular.typeface.json',
+    (font)=>{
+        const textGeometery = new THREE.TextBufferGeometry(
+            'HAUNTED HOUSE',{
+                font: font,
+                size:0.5,
+                height:0.2,
+                curveSegments:12,
+                bevelEnabled: true,
+                bevelThickness:0.03,
+                bevelSize:0.02,
+                bevelOffset:0,
+                bevelSegments:5
+            }
+        )
+        textGeometery.center()
+    const text = new THREE.Mesh(textGeometery,graveMaterial)
+    text.position.y=4
+    text.position.z=8
+    scene.add(text)})
+
+
 /**
  * Lights
  */
